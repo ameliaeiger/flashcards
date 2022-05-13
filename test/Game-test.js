@@ -13,11 +13,6 @@ const Game = require('../src/Game');
 
 describe("Game", ()=> {
 
-  beforeEach(() => {
-
-
-});
-
   it("should be a function", ()=> {
       expect(Game).to.be.a("function")
 
@@ -25,8 +20,6 @@ describe("Game", ()=> {
   it("should create cards", ()=> {
     let game = new Game(0)
     game.generateRound()
-    // console.log(game.cards.length)
-    // game.start()
     expect(game.cards.length).to.equal(30)
 
   })
@@ -39,18 +32,5 @@ describe("Game", ()=> {
     let game = new Game(0)
     game.generateRound()
     expect(game.)
-      // expect(game.start()).to.be.equal(`Welcome to FlashCards! You are playing with 30 cards.-----------------------------------------------------------------------`)
   })
-
 });
-
-
-
-
-
-
-// IT BLOCK
-
-// it("", ()=> {
-//     expect().to.be.a("function")
-// })

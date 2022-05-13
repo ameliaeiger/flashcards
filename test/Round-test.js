@@ -24,8 +24,6 @@ describe("Round", ()=> {
     card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
     deck = new Deck([card1, card2, card3]);
-    // turn = new Turn("sea otter", deck.cards[0]);
-    // incorrectTurn = new Turn("pug", deck.cards[0]);
     round = new Round(deck);
     incorrectRound = new Round(deck);
 

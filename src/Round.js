@@ -12,15 +12,12 @@ class Round {
       return this.currentCard[this.turns]
   }
     takeTurn(guess) {
-      // this.turns += 1;
-      // this.returnCurrentCard()
       this.currentTurn = new Turn(guess, this.returnCurrentCard())
       this.turns += 1;
       if (!this.currentTurn.evaluateGuess()) {
         this.incorrectGuesses.push(this.currentTurn.card.id)
         return this.currentTurn.giveFeedback();
       } else {
-        // this.returnCurrentCard();
         return this.currentTurn.giveFeedback();
     }
   }
@@ -32,8 +29,7 @@ class Round {
     return Math.round(percentCorrect)
   }
   endRound() {
-    return `You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
-    // print calculatePercentCorrect()
+    console.log(`You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 
