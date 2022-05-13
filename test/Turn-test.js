@@ -25,7 +25,7 @@ describe("Turn", ()=> {
   })
   it("should accept a card object", ()=> {
       let round = new Round(deck, turn.returnGuess(), turn.evaluateGuess())
-      expect(turn.cardObject).to.equal(card1);
+      expect(turn.card).to.equal(card1);
   })
   it("should return the guess", ()=> {
       expect(turn.returnGuess()).to.equal("sea otter");

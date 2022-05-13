@@ -12,7 +12,7 @@ describe("Round", ()=> {
     let card2
     let card3
     let deck
-    let turn
+    // let guess
     let round
     let incorrectTurn
     let incorrectRound
@@ -24,8 +24,8 @@ describe("Round", ()=> {
     card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
     deck = new Deck([card1, card2, card3]);
-    turn = new Turn("sea otter", deck.cards[0]);
-    incorrectTurn = new Turn("pug", deck.cards[0]);
+    // turn = new Turn("sea otter", deck.cards[0]);
+    // incorrectTurn = new Turn("pug", deck.cards[0]);
     round = new Round(deck);
     incorrectRound = new Round(deck);
 
@@ -36,43 +36,44 @@ describe("Round", ()=> {
 
   });
   it("should return the current card being played", ()=> {
+
         expect(round.returnCurrentCard()).to.equal(deck.cards[0])
 
   });
   it("should add to turn count", ()=> {
-        round.takeTurn(turn);
+        round.takeTurn("sea otter");
         expect(round.turns).to.equal(1);
 
   });
   it("should update the current card when a turn is taken", ()=> {
-        round.takeTurn(turn);
-        expect(round.currentCard).to.equal(deck.cards[1]);
+        round.takeTurn("sea otter");
+        expect(round.returnCurrentCard()).to.equal(deck.cards[1]);
 
   });
   it ("should evaluate/record a guess (id is stored)", ()=> {
-        round.takeTurn(turn);
-        incorrectRound.takeTurn(incorrectTurn);
+        round.takeTurn("sea otter");
+        incorrectRound.takeTurn("pug");
 
         expect(round.incorrectGuesses.length).to.equal(0);
         expect(incorrectRound.incorrectGuesses.length).to.equal(1);
 
   });
   it("should provide feedback for guesses", ()=> {
-        expect(round.takeTurn(turn)).to.equal("Correct!")
-        expect(incorrectRound.takeTurn(incorrectTurn)).to.equal("Incorrect!")
+        expect(round.takeTurn("sea otter")).to.equal("Correct!")
+        expect(incorrectRound.takeTurn("pug")).to.equal("Incorrect!")
 
   });
   it("should calculate percentage of correct guesses", ()=> {
-        round.takeTurn(turn);
-        incorrectRound.takeTurn(incorrectTurn);
+        round.takeTurn("sea otter");
+        incorrectRound.takeTurn("pug");
 
         expect(round.calculatePercentCorrect()).to.equal(100)
         expect(incorrectRound.calculatePercentCorrect()).to.equal(67)
 
   });
   it("should print a string to the console at the end of the round", ()=> {
-        round.takeTurn(turn);
-        incorrectRound.takeTurn(incorrectTurn);
+        round.takeTurn("sea otter");
+        incorrectRound.takeTurn("pug");
 
         expect(round.calculatePercentCorrect()).to.equal(100)
         expect(incorrectRound.calculatePercentCorrect()).to.equal(67)

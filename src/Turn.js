@@ -1,16 +1,16 @@
 class Turn{
-  constructor(guess, cardObject){
+  constructor(guess, card){
     this.guess = guess;
-    this.cardObject = cardObject;
+    this.card = card;
   }
   returnGuess(){
     return this.guess;
   }
   returnCard(){
-    return this.cardObject;
+    return this.card;
   }
   evaluateGuess(){
-    if(this.guess == this.cardObject.correctAnswer){
+    if(this.guess == this.card.correctAnswer){
       return true;
     } else {
       return false;
